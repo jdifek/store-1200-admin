@@ -15,7 +15,7 @@ export function Chats() {
 
   const loadChats = async () => {
     try {
-      const data = await api.get('/admin/chats');
+      const data: any = await api.get('/admin/chats');
       setChats(data.chats || []); // ✅ берём только массив чатов
     } catch (err) {
       console.error('Ошибка при загрузке чатов:', err);

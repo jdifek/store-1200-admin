@@ -8,7 +8,7 @@ export function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [editingProduct, setEditingProduct] = useState<any | null>(null);
   const [images, setImages] = useState<File[]>([]);
   const [formData, setFormData] = useState<ProductFormData>({
     name: '',
@@ -24,7 +24,7 @@ export function Products() {
 
   const loadProducts = async () => {
     try {
-      const data = await api.get('/admin/products');
+      const data: any = await api.get('/admin/products');
       setProducts(data.products || []);
     } catch (err) {
       console.error('Ошибка при загрузке продуктов:', err);
@@ -33,7 +33,7 @@ export function Products() {
 
   const loadCategories = async () => {
     try {
-      const data = await api.get('/admin/categories');
+      const data: any = await api.get('/admin/categories');
       setCategories(data.categories || []);
     } catch (err) {
       console.error('Ошибка при загрузке категорий:', err);
@@ -239,7 +239,7 @@ export function Products() {
   {/* Если редактируем продукт, показываем существующие изображения */}
   {editingProduct && editingProduct.images.length > 0 && (
     <div className="flex flex-wrap gap-2 mt-2">
-      {editingProduct.images.map((img, index) => (
+      {editingProduct.images.map((img: any, index: any) => (
         <div key={index} className="w-20 h-20 relative border rounded-lg overflow-hidden">
           <img
             src={img.url} // предполагается, что сервер возвращает {url: "..."}

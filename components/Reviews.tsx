@@ -21,7 +21,7 @@ export function Reviews() {
 
   const loadReviews = async () => {
     try {
-      const { reviews } = await api.get('/admin/reviews');
+      const { reviews }: { reviews: any } = await api.get('/admin/reviews');
       setReviews(Array.isArray(reviews) ? reviews : []);
     } catch (err) {
       console.error('Ошибка при загрузке отзывов:', err);

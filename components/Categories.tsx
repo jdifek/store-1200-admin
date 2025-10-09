@@ -16,7 +16,7 @@ export function Categories() {
 
   const loadCategories = async () => {
     try {
-      const data = await api.get('/admin/categories');
+      const data: any = await api.get('/admin/categories');
       setCategories(data.categories || []); // ✅ только массив
     } catch (err) {
       console.error('Ошибка при загрузке категорий:', err);
