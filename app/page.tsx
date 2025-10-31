@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, ReactNode } from 'react';
-import { Menu, X, Home, Package, FolderTree, MessageSquare, Star } from 'lucide-react';
+import { Menu, X, Home, Package, FolderTree, MessageSquare, Star, ShoppingBag } from 'lucide-react';
 import { api } from '@/lib/api';
 import { LoginPage } from '@/components/LoginPage';
 import { Dashboard } from '@/components/Dashboard';
@@ -8,8 +8,9 @@ import { Categories } from '@/components/Categories';
 import { Products } from '@/components/Products';
 import { Chats } from '@/components/Chats';
 import { Reviews } from '@/components/Reviews';
+import { Orders } from '@/components/Order';
 
-type PageType = 'dashboard' | 'categories' | 'products' | 'chats' | 'reviews';
+type PageType = 'dashboard' | 'categories' | 'products' | 'chats' | 'reviews' | 'orders';
 
 interface MenuItem {
   id: PageType;
@@ -40,6 +41,7 @@ export default function AdminPanel() {
 
   const menuItems: MenuItem[] = [
     { id: 'dashboard', label: 'Главная', icon: <Home size={20} /> },
+    { id: 'orders', label: 'Заказы', icon: <ShoppingBag size={20} /> },
     { id: 'categories', label: 'Категории', icon: <FolderTree size={20} /> },
     { id: 'products', label: 'Товары', icon: <Package size={20} /> },
     { id: 'chats', label: 'Чаты', icon: <MessageSquare size={20} /> },
@@ -52,6 +54,8 @@ export default function AdminPanel() {
         return <Dashboard />;
       case 'categories':
         return <Categories />;
+      case 'orders':
+        return <Orders />;
       case 'products':
         return <Products />;
       case 'chats':
