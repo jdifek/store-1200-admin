@@ -17,6 +17,8 @@ export interface Product {
 }
 
 export interface Chat {
+  [x: string]: any;
+  [x: string]: any;
   id: string;
   createdAt: string;
   updatedAt: string;
