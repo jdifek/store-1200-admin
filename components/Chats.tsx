@@ -12,7 +12,7 @@ export function Chats() {
   
   const socketRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const SOCKET_URL = 'http://localhost:5000';
+  const SOCKET_URL = process.env.SOCKET_URL || 'http://localhost:5000';
 
   // Загрузка Socket.IO и подключение
   useEffect(() => {
